@@ -127,7 +127,7 @@ public class Calculator {
 				i = k;
 			}
 			// 循环检查其他字符
-			if (cs[i] == '+' || cs[i] == '-' || cs[i] == '*' || cs[i] == '+'
+			if (cs[i] == '+' || cs[i] == '-' || cs[i] == '*' 
 					|| cs[i] == '/' || cs[i] == '(' || cs[i] == ')') {
 				if (buffer.length() != 0) {// 保证运算符之前的操作数必须是独立的
 					this.expressions.add(buffer.toString());// 添加结果到集合中
