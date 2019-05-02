@@ -44,7 +44,12 @@ public class CalculatorTest {
 	public void testInitCover() {
 		assertEquals(cal.drive("1+2").run(), "3.0");
 		assertEquals(cal.drive("cos(0)").run(), "1.0");
-		assertEquals(cal.drive("(2[+0)").run(), "2");
+		assertEquals(cal.drive("(2[+0)").run(), "error");
+	}
+	
+	@Test
+	public void testInitLoop() {
+		
 	}
 	
 	@Test
