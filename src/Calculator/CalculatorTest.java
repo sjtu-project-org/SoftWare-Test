@@ -34,9 +34,17 @@ public class CalculatorTest {
 		assertEquals(cal.drive("1*2").run(), "2.0");
 		assertEquals(cal.drive("1/2").run(), "0.5");
 	}
-	
+
+	@Test
 	public void testCalConstructor() {
 		Calculator cal2 = new Calculator("1+1");
+	}
+
+	@Test
+	public void testInitCover() {
+		assertEquals(cal.drive("1+2").run(), "3.0");
+		assertEquals(cal.drive("cos(0)").run(), "1.0");
+		assertEquals(cal.drive("(2[+0)").run(), "2");
 	}
 	
 }
