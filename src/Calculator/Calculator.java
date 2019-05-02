@@ -100,9 +100,12 @@ public class Calculator {
 		for (int i = 0; i < cs.length; i++) {
 			// 循环检查字母
 			for (int j = i; (j < cs.length)
-					&& ((cs[j] >= 'A' && cs[j] <= 'Z') || (cs[j] >= 'a' && cs[j] <= 'z')); j++) {
+							&& ((cs[j] >= 'A' 
+								&& cs[j] <= 'Z') 
+									|| (cs[j] >= 'a' && cs[j] <= 'z')); j++) {
 				buffer.append(cs[j]);
-				while (j + 1 < cs.length && cs[j + 1] >= '0'
+				while (j + 1 < cs.length 
+						&& cs[j + 1] >= '0'
 						&& cs[j + 1] <= '9') {
 					buffer.append(cs[j + 1]);
 					j++;
@@ -178,6 +181,10 @@ public class Calculator {
 				Method method = this.map.get(op);
 				try {
 					if (k + 1 < this.vals.size()) {
+						String d1 = this.vals.get(k);
+						String d2 = this.vals.get(k+1);
+						if(d1.isEmpty())return;
+						if(d2.isEmpty())return;
 						String val = method.invoke(method.getClass(),
 								Double.valueOf(this.vals.get(k)),
 								Double.valueOf(this.vals.get(k + 1)))
