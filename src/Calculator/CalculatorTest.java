@@ -20,10 +20,10 @@ public class CalculatorTest {
 	public void tearDown() throws Exception {
 	}
 
-	/*@Test
+	@Test
 	public void testCalConstructor() {
 		Calculator cal2 = new Calculator("1+1");
-	}*/
+	}
 	@Test
 	public void testAdd() {
 		assertEquals(cal.drive("1+2").run(), "3.0");
@@ -40,15 +40,10 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void testCalConstructor() {
-		Calculator cal2 = new Calculator("1+1");
-	}
-
-	@Test
 	public void testInitCover() {
 		assertEquals(cal.drive("1+2").run(), "3.0");
 		assertEquals(cal.drive("cos(0)").run(), "1.0");
-		assertEquals(cal.drive("(2[+0)").run(), "2");
+		assertEquals(cal.drive("(2[+0)").run(), "error");
 	}
 	
 	@Test
@@ -58,5 +53,6 @@ public class CalculatorTest {
 		assertEquals(cal.drive("1*2+(3-1)").run(), "4.0");
 		assertEquals(cal.drive("(2[+1)").run(), "error");
 		assertEquals(cal.drive("cos(0)+1").run(), "2.0");
+		assertEquals(cal.drive("a0+1").run(), "error");
 	}
 }
