@@ -64,6 +64,7 @@ public class Calculator {
 		this.expressions.clear();
 		this.types.clear();
 		this.expression = expression;
+		this.correct = true;
 		this.initHeartMap();
 		return this;
 	}

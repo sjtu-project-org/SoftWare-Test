@@ -20,15 +20,16 @@ public class CalculatorTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
+	/*@Test
 	public void testCalConstructor() {
 		Calculator cal2 = new Calculator("1+1");
-	}
+	}*/
 	@Test
 	public void testPrepare() {
 		assertEquals(cal.drive("2+1").run(), "3.0");
 		assertEquals(cal.drive("1+2*(3-1)").run(), "5.0");
 		assertEquals(cal.drive("1*2+(3-1)").run(), "4.0");
 		assertEquals(cal.drive("(2[+1)").run(), "error");
+		assertEquals(cal.drive("cos(0)+1").run(), "2.0");
 	}
 }
