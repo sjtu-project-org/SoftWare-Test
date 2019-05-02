@@ -91,8 +91,8 @@ public class Calculator {
 			for (int i = 0; i < methods.length; i++) {
 				this.map.put(methods[i].getName(), methods[i]);
 			}
-			this.map.put("+",DIYLIB.class.getMethod("add", Double.TYPE, Double.TYPE));
-			this.map.put("/",DIYLIB.class.getMethod("divide", Double.TYPE, Double.TYPE));
+			this.map.put("+", DIYLIB.class.getMethod("add", Double.TYPE, Double.TYPE));
+			this.map.put("/", DIYLIB.class.getMethod("divide", Double.TYPE, Double.TYPE));
 			this.map.put("-", DIYLIB.class.getMethod("subtract", Double.TYPE,Double.TYPE));
 			this.map.put("*", DIYLIB.class.getMethod("multiply", Double.TYPE,Double.TYPE));
 		} catch (NoSuchMethodException e) {
@@ -166,7 +166,8 @@ public class Calculator {
 	 * @return
 	 */
 	private String getResult() {
-		if (this.vals.size() == 1 && this.ops.isEmpty()) {
+		if (this.vals.size() == 1 
+				&& this.ops.isEmpty()) {
 			return this.vals.pop();
 		}
 		return "error";

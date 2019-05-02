@@ -24,6 +24,15 @@ public class CalculatorTest {
 	public void testAdd() {
 		assertEquals(cal.drive("1+2").run(), "3.0");
 		assertEquals(cal.drive("(1+3)+4").run(), "8.0");
+		assertEquals(cal.drive("2pow2+2").run(), "error");
+	}
+	
+	@Test
+	public void testDIYLIB() {
+		assertEquals(cal.drive("1+2").run(), "3.0");
+		assertEquals(cal.drive("1-2").run(), "-1.0");
+		assertEquals(cal.drive("1*2").run(), "2.0");
+		assertEquals(cal.drive("1/2").run(), "0.5");
 	}
 	
 }
