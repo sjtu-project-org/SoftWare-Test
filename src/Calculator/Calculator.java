@@ -225,8 +225,7 @@ public class Calculator {
 								String.class);
 						object = mt.invoke(mt.getClass(), this.vals.pop());
 					} catch (NoSuchMethodException | SecurityException
-							| IllegalAccessException | IllegalArgumentException
-							| InvocationTargetException e) {
+							| IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 						e.printStackTrace();
 						correct = false;
 					}
@@ -245,12 +244,12 @@ public class Calculator {
 		}
 	}
 
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		//Calculator calculator = new Calculator(args[0]);
 		Calculator calculator = new Calculator();
-		calculator.drive("1+2*(3-1)");
+		calculator.drive("(2[+2)");
 		System.out.println(calculator.run());
 		calculator.drive("1+2*(3+1)");
 		System.out.println(calculator.run());
-	}*/
+	}
 }
