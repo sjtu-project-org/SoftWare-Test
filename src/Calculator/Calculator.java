@@ -50,10 +50,10 @@ public class Calculator {
 	 * @param expression
 	 *            计算表达式
 	 */
-	/*public Calculator(String expression) {
+	public Calculator(String expression) {
 		this.expression = expression;
 		this.initHeartMap();
-	}*/
+	}
 	public Calculator() {
 		
 	}
@@ -67,21 +67,12 @@ public class Calculator {
 		this.initHeartMap();
 		return this;
 	}
-	/**
-	 * 设置运算表达式
-	 * 
-	 * @param expression
-	 */
-	public void setExpression(String expression) {
-		this.expression = expression;
-	}
 
 	/**
 	 * 加载初始化核心库
 	 */
 	private void initHeartMap() {
 		try {
-
 			types.put(Double.TYPE, Double.class);
 			types.put(Integer.TYPE, Integer.class);
 			types.put(Long.TYPE, Long.class);
@@ -96,8 +87,6 @@ public class Calculator {
 			this.map.put("-", DIYLIB.class.getMethod("subtract", Double.TYPE,Double.TYPE));
 			this.map.put("*", DIYLIB.class.getMethod("multiply", Double.TYPE,Double.TYPE));
 		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-		} catch (SecurityException e) {
 			e.printStackTrace();
 		}
 	}
@@ -127,7 +116,7 @@ public class Calculator {
 				i = k;
 			}
 			// 循环检查其他字符
-			if (cs[i] == '+' || cs[i] == '-' || cs[i] == '*' 
+			if (cs[i] == '+' || cs[i] == '-' || cs[i] == '*'
 					|| cs[i] == '/' || cs[i] == '(' || cs[i] == ')') {
 				if (buffer.length() != 0) {// 保证运算符之前的操作数必须是独立的
 					this.expressions.add(buffer.toString());// 添加结果到集合中
@@ -166,12 +155,14 @@ public class Calculator {
 	 * @return
 	 */
 	private String getResult() {
-		if (this.vals.size() == 1 
-				&& this.ops.isEmpty()) {
-			return this.vals.pop();
+		if(this.expression.equals(""))
+			return "";
+		else {
+			if (this.vals.size() == 1 && this.ops.isEmpty()) {
+				return this.vals.pop();
+			}else
+				return "error";
 		}
-		return "error";
-
 	}
 
 	/**
@@ -251,12 +242,12 @@ public class Calculator {
 		}
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		//Calculator calculator = new Calculator(args[0]);
 		Calculator calculator = new Calculator();
 		calculator.drive("1+2*(3-1)");
 		System.out.println(calculator.run());
 		calculator.drive("1+2*(3+1)");
 		System.out.println(calculator.run());
-	}
+	}*/
 }

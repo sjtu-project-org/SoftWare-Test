@@ -35,4 +35,8 @@ public class CalculatorTest {
 		assertEquals(cal.drive("1/2").run(), "0.5");
 	}
 	
+	public void testCalConstructor() {
+		Calculator cal2 = new Calculator("1+1");
+	}
+	
 }
