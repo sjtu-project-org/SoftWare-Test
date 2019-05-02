@@ -1,3 +1,5 @@
 
+bin/Calculator/*.class
 *.class
+bin/Calculator/Calculator.class
 bin/Calculator/CalculatorTest.class

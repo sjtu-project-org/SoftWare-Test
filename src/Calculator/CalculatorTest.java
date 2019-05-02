@@ -47,4 +47,11 @@ public class CalculatorTest {
 		assertEquals(cal.drive("(2[+0)").run(), "2");
 	}
 	
+	@Test
+	public void testPrepare() {
+		assertEquals(cal.drive("2+1").run(), "3.0");
+		assertEquals(cal.drive("1+2*(3-1)").run(), "5.0");
+		assertEquals(cal.drive("1*2+(3-1)").run(), "4.0");
+		assertEquals(cal.drive("(2[+1)").run(), "error");
+	}
 }
