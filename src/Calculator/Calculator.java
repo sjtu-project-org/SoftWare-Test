@@ -15,7 +15,7 @@ public class Calculator {
 	private HashMap<String, Method> map = new HashMap<String, Method>();// 运算方法栈
 	private ArrayList<String> expressions = new ArrayList<String>();// 存储分析表达式后的元素
 	private HashMap<Type, Class<?>> types = new HashMap<Type, Class<?>>();// 存储数据类型
-
+	private boolean correct = true;
 	/**
 	 * 自定义运算方法库
 	 * 
@@ -88,6 +88,7 @@ public class Calculator {
 			this.map.put("*", DIYLIB.class.getMethod("multiply", Double.TYPE,Double.TYPE));
 		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
+			correct = false;
 		}
 	}
 
@@ -155,14 +156,13 @@ public class Calculator {
 	 * @return
 	 */
 	private String getResult() {
-		if(this.expression.equals(""))
-			return "";
-		else {
-			if (this.vals.size() == 1 && this.ops.isEmpty()) {
-				return this.vals.pop();
-			}else
-				return "error";
+		if(!correct) 
+			return "error";
+		if (this.vals.size() == 1 && this.ops.isEmpty()) {
+			return this.vals.pop();
 		}
+		else
+			return "error";
 	}
 
 	/**
@@ -227,6 +227,7 @@ public class Calculator {
 							| IllegalAccessException | IllegalArgumentException
 							| InvocationTargetException e) {
 						e.printStackTrace();
+						correct = false;
 					}
 					objects[j] = object;
 
@@ -237,6 +238,7 @@ public class Calculator {
 				} catch (IllegalAccessException | IllegalArgumentException
 						| InvocationTargetException e) {
 					e.printStackTrace();
+					correct = false;
 				}
 			}
 		}
