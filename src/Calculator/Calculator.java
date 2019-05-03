@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -213,7 +214,14 @@ public class Calculator {
 				this.vals.push(item);
 			}
 			if (item.equals(")")) {
-				String op = this.ops.pop();
+				String op = "";
+				try {
+					op=this.ops.pop();
+				} catch (EmptyStackException e) {
+					e.printStackTrace();
+					correct = false;
+					break;
+				}				
 				Method method = this.map.get(op);
 				Class<?>[] types = method.getParameterTypes();
 				Object[] objects = new Object[types.length];
@@ -247,9 +255,9 @@ public class Calculator {
 	public static void main(String[] args) {
 		//Calculator calculator = new Calculator(args[0]);
 		Calculator calculator = new Calculator();
-		calculator.drive("(2[+2)");
+		calculator.drive("()");
 		System.out.println(calculator.run());
-		calculator.drive("1+2*(3+1)");
-		System.out.println(calculator.run());
+		//calculator.drive("1+2*(3+1)");
+		//System.out.println(calculator.run());
 	}
 }
