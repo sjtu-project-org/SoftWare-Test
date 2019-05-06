@@ -62,15 +62,18 @@ public class CalculatorTest {
 	}
 	@Test
 	public void test_doit() {
-		assertEquals(cal.drive("1").run(), "1");
+		//Coverage Test
 		assertEquals(cal.drive("1+2").run(), "3.0");
 		assertEquals(cal.drive("cos(0)").run(), "1.0");
 		assertEquals(cal.drive("cos(5.0)").run(), "error");
-		assertEquals(cal.drive("cos(0)+1").run(), "2.0");
-		assertEquals(cal.drive("5+").run(), "error");
 		assertEquals(cal.drive("[1+34").run(), "error");
+		//Single Loop
+		assertEquals(cal.drive("1").run(), "1");               //Loop time 0
+		assertEquals(cal.drive("cos(5.0)").run(), "error");    //Loop time 1
+		assertEquals(cal.drive("5+").run(), "error");
+		assertEquals(cal.drive("cos(0)+1").run(), "2.0");      //Loop time 2
 		assertEquals(cal.drive("a+4").run(), "error");
-		assertEquals(cal.drive("a1+4").run(), "error");
+		assertEquals(cal.drive("0+cos(0)*2-2").run(), "0.0");//Loop time N
 	}
 	@Test
 	public void testPrepare() {
