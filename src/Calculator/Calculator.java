@@ -255,7 +255,7 @@ public class Calculator {
 	public static void main(String[] args) {
 		//Calculator calculator = new Calculator(args[0]);
 		Calculator calculator = new Calculator();
-		calculator.drive("()");
+		calculator.drive("0+cos(0)*2-3/6");
 		System.out.println(calculator.run());
 		//calculator.drive("1+2*(3+1)");
 		//System.out.println(calculator.run());

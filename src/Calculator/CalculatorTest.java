@@ -74,11 +74,14 @@ public class CalculatorTest {
 	}
 	@Test
 	public void testPrepare() {
-		assertEquals(cal.drive("2+1").run(), "3.0");
-		assertEquals(cal.drive("1+2*(3-1)").run(), "5.0");
-		assertEquals(cal.drive("1*2+(3-1)").run(), "4.0");
-		assertEquals(cal.drive("(2[+1)").run(), "error");
-		assertEquals(cal.drive("cos(0)+1").run(), "2.0");
-		assertEquals(cal.drive("a0+1").run(), "error");
+		assertEquals(cal.drive("()").run(), "error");//inner 0 outer 0
+		assertEquals(cal.drive("1").run(), "1");//inner 1 outer 1 
+		assertEquals(cal.drive("123").run(), "123");//inner 3 outer 1 
+		assertEquals(cal.drive("a+").run(), "error");//inner 1 outer 2
+		assertEquals(cal.drive("abc+").run(), "error");//inner 3 outer 2
+		assertEquals(cal.drive("cos(0)").run(), "1.0");//inner 3 outer 3
+		assertEquals(cal.drive("[{(c+").run(), "error");//inner 4 outer 5 
+		assertEquals(cal.drive("0+cos(0)*2-3/6").run(), "1.5");//inner M outer N 
+		
 	}
 }
