@@ -60,7 +60,18 @@ public class CalculatorTest {
 		assertEquals(cal.drive("2+cos(0)").run(), "3.0");	// outer 3
 		assertEquals(cal.drive("0+cos(0)*2-3/6").run(), "1.5");	// outer N
 	}
-	
+	@Test
+	public void test_doit() {
+		assertEquals(cal.drive("1").run(), "1");
+		assertEquals(cal.drive("1+2").run(), "3.0");
+		assertEquals(cal.drive("cos(0)").run(), "1.0");
+		assertEquals(cal.drive("cos(5.0)").run(), "error");
+		assertEquals(cal.drive("cos(0)+1").run(), "2.0");
+		assertEquals(cal.drive("5+").run(), "error");
+		assertEquals(cal.drive("[1+34").run(), "error");
+		assertEquals(cal.drive("a+4").run(), "error");
+		assertEquals(cal.drive("a1+4").run(), "error");
+	}
 	@Test
 	public void testPrepare() {
 		assertEquals(cal.drive("2+1").run(), "3.0");
