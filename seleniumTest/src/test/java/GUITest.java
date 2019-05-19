@@ -9,6 +9,7 @@ import java.util.List;
 public class GUITest {
     private WebDriver driver;
     private String url = "http://www.toolfk.com/";
+
     public GUITest(){
         System.setProperty("webdriver.chrome.driver", "chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
@@ -25,6 +26,12 @@ public class GUITest {
     public void TestPPopupDialogs(){
         List<WebElement> es = driver.findElements(By.className("app"));
     }
+
+    public void TestCheckBox() {
+        WebElement element = driver.findElement(By.xpath("//a[@title='在线正则表达式测试']"));
+        element.getAttribute("")
+    }
+
     public static void main(String args[]){
 
     }
