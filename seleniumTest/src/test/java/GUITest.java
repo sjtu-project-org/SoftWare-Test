@@ -32,6 +32,16 @@ public class GUITest {
         element.getAttribute("")
     }
 
+    public void TestButton(){
+        WebElement e1 = driver.findElement(By.xpath(".//a[@title='在线进制转换']"));
+        e1.click();
+    }
+    public void TestSingleRadio(){
+    	WebElement e1 = driver.findElement(By.xpath(".//a[@title='在线进制转换']"));
+        e1.click();
+        WebElement e2 = driver.findElement(By.xpath(".//input[@id='hex_8']"));
+        e2.click();
+    }
     public static void main(String args[]){
 
     }
