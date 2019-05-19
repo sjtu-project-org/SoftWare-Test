@@ -25,6 +25,16 @@ public class GUITest {
     public void TestPPopupDialogs(){
         List<WebElement> es = driver.findElements(By.className("app"));
     }
+    public void TestButton(){
+        WebElement e1 = driver.findElement(By.xpath(".//a[@title='在线进制转换']"));
+        e1.click();
+    }
+    public void TestSingleRadio(){
+    	WebElement e1 = driver.findElement(By.xpath(".//a[@title='在线进制转换']"));
+        e1.click();
+        WebElement e2 = driver.findElement(By.xpath(".//input[@id='hex_8']"));
+        e2.click();
+    }
     public static void main(String args[]){
 
     }
