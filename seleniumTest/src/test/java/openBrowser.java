@@ -10,17 +10,40 @@ public class openBrowser {
         System.setProperty("webdriver.chrome.driver", "chromedriver_win32\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         String url = "http://www.lib.sjtu.edu.cn";
-        //get method
+
+        //get()
         driver.get(url);
+
+        //navigate()
+        //driver.navigate().to(url);
 
         //getTitle()
         String title = driver.getTitle();
 
         //getCurrentUrl()
-        String curentUrl = driver.getCurrentUrl();
+        String currentUrl = driver.getCurrentUrl();
+        System.out.printf("title: %s\nurl:%s\n", title, currentUrl);
 
-        //navigate method
-        //driver.navigate().to(url);
+        //findByX()
+        //WebElement e0 = driver.findElement(By.id("isMainPage"));
+        WebElement e1 = driver.findElement(By.className("siyuantansuo-icon"));
+        e1.sendKeys("Test");
+        //e1.clear();
+        e1.getAttribute("value");
+        //List<WebElement> e2 = driver.findElements(By.className("module-link"));
+
+        /*
+        <div id=“food”>
+          <span class=“dairy”>milk</span>
+          <span class=“dairy aged”>cheese</span>
+        </div>
+        */
+        //WebElement e3 =driver.findElement(By.cssSelector("#food span.dairy.aged"));
+
+        /*
+        <ahref="http://www.google.com/search?q=cheese">cheese</a>>
+        */
+        //WebElement cheese  = driver.findElement(By.linkText("cheese"));
 
         //quit & close
         //driver.quit();
