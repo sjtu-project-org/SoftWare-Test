@@ -69,8 +69,9 @@ public class GUITest {
     }
 
     public void TestDropDownBox() {
+        /*
         // get select box
-        WebElement showSelectElm = driver.findElement(By.className("layui-edge"));
+        WebElement showSelectElm = driver.findElement(By.name("modules"));
         new WebDriverWait(driver, 15).until(
                 ExpectedConditions.elementToBeClickable(showSelectElm));
         showSelectElm.click();
@@ -79,6 +80,36 @@ public class GUITest {
         //selectTool.selectByValue("/tool-online-manual");
         selectTool.selectByVisibleText("在线it在线电子教程");
         assertEquals(driver.getCurrentUrl(), "https://www.toolfk.com/tool-online-manual");
+         */
+        // switch to tool-password-generator
+        driver.findElement(By.xpath(".//a[@title='在线随机密码生成']")).click();
+        // init Select, select pwd length 9 and verify
+        Select selectTool = new Select(driver.findElement(By.id("pgLength")));
+        List<WebElement> optionElms = selectTool.getAllSelectedOptions();
+
+        // "Copy" length
+        int childLen = "copy".length();
+        // selecteBy value
+        selectTool.selectByValue("9");
+        WebElement pwdGenButton = driver.findElement(By.className("generate-password"));
+        pwdGenButton.click();
+        WebElement pwdBlock = driver.findElement(By.className("layui-input-block"));
+        // note getText also get the childNode test "Copy",
+        // so the text length is 4 longer than pws
+        assertEquals(pwdBlock.getText().length(), 9+childLen);
+
+        // selectBy Index
+        selectTool.selectByIndex(10);
+        pwdGenButton.click();
+        // TODO: seems getAllSelectedOptions not right
+        // TODO: seems pwdBlock cannot be reused
+        //assertEquals(driver.findElement(By.className("layui-input-block")).getText().length(), optionElms.get(10).getText().length()+"copy".length());
+        assertEquals(driver.findElement(By.className("layui-input-block")).getText().length(), 18+childLen);
+
+        // selectBy visible text
+        selectTool.selectByVisibleText("15");
+        pwdGenButton.click();
+        assertEquals(driver.findElement(By.className("layui-input-block")).getText().length(), 15+childLen);
     }
 
     public void TestButton(){
