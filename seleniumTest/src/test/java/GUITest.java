@@ -122,6 +122,14 @@ public class GUITest {
         WebElement e2 = driver.findElement(By.xpath(".//input[@id='hex_8']"));
         e2.click();
     }
+    public void TestUpload(){
+    	driver.findElement(By.xpath(".//a[@title='在线PDF转图片']")).click();
+    	WebElement adFileUpload = driver.findElement(By.id("pdf"));
+    	String filePath = "D://testfile//test.pdf";
+    	adFileUpload.sendKeys(filePath);
+    	assertEquals(driver.findElement(By.id("pdfName")).getText().length(), 8);
+    }
+    
     public static void main(String args[]){
 
     }

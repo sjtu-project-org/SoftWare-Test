@@ -11,7 +11,7 @@ public class openBrowser {
         //test.TestInput();
         //test.TestPPopupDialogs();
         //test.TestCheckBox();
-        test.TestDropDownBox();
+        test.TestUpload();
         //open chrome
         //System.setProperty("webdriver.chrome.driver", "chromedriver_win32\\chromedriver.exe");
         //WebDriver driver = new ChromeDriver();
