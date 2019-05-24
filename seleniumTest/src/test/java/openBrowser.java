@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,10 +7,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.Alert;
 
 public class openBrowser {
-    public static void main(String args[]){
+    public static void main(String args[]) throws IOException {
         GUITest test = new GUITest();
-        test.TestInput();
-        //test.TestPPopupDialogs();
+        //test.TestInput();
+        test.TestShotScreen();
         //test.TestCheckBox();
         //test.TestUpload();
         //open chrome

@@ -1,15 +1,16 @@
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
+import org.apache.commons.io.FileUtils;
+
+import java.io.IOException;
 import java.util.List;
 
 public class GUITest {
@@ -31,8 +32,17 @@ public class GUITest {
         assertEquals(input.getAttribute("value"), "www.baidu.com");
     }
 
-    public void TestPPopupDialogs(){
-        List<WebElement> es = driver.findElements(By.className("app"));
+    public void TestShotScreen() throws IOException {
+        WebElement approval = driver.findElement(By.cssSelector("form[action='/']"));
+        try {
+            Thread.sleep(30);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        File screenShotFile = ((TakesScreenshot) driver).
+                getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(screenShotFile, new File("./test.png"));
+        assertEquals(new File("test.png").exists(), true);
     }
 
 
