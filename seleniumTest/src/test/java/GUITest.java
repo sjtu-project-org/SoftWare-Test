@@ -23,10 +23,12 @@ public class GUITest {
     }
 
     public void TestInput(){
-        WebElement e1 = driver.findElement(By.name("wd"));
-        e1.sendKeys("Test");
-        String v = e1.getAttribute("value");
-        System.out.printf("get value:%s\n", v);
+        WebElement regexElm = driver.findElement(By.xpath("//a[@title='在线短网址生成']"));
+        regexElm.click();
+        WebElement input = driver.findElement(By.name("url"));
+        input.clear();
+        input.sendKeys("www.baidu.com");
+        assertEquals(input.getAttribute("value"), "www.baidu.com");
     }
 
     public void TestPPopupDialogs(){
@@ -146,6 +148,6 @@ public class GUITest {
     }
     
     public static void main(String args[]){
-
+        
     }
 }

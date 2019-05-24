@@ -8,7 +8,7 @@ import org.openqa.selenium.Alert;
 public class openBrowser {
     public static void main(String args[]){
         GUITest test = new GUITest();
-        //test.TestInput();
+        test.TestInput();
         //test.TestPPopupDialogs();
         //test.TestCheckBox();
         //test.TestUpload();

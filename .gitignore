@@ -1,3 +1,4 @@
 
 *.class
 seleniumTest/.idea
+seleniumTest/.idea/workspace.xml
