@@ -26,6 +26,6 @@ public class GUITest {
         List<WebElement> es = driver.findElements(By.className("app"));
     }
     public static void main(String args[]){
-
+        
     }
 }
