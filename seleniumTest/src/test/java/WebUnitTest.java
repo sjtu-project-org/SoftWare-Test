@@ -12,6 +12,7 @@ public class WebUnitTest {
     public static void setUp() throws Exception {
         test = new GUITest();
     }
+
     @After
     public void revert(){
         test.back2Default();
