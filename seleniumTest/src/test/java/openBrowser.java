@@ -7,6 +7,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.Alert;
 
 public class openBrowser {
+    private String[] test = {
+            "TestInput",
+            "TestShotScreen",
+            "TestCheckBox",
+            "TestUpload",
+            "TestCheckBoxFunc",
+            "TestDropDownBox",
+            "TestButton",
+            "TestSingleRadio",
+            "TestUpload"
+    };
+
     public static void main(String args[]) throws IOException {
         GUITest test = new GUITest();
         //test.TestInput();
