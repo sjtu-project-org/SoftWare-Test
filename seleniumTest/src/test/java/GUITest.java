@@ -31,28 +31,36 @@ public class GUITest {
     public void TestInput(){
         WebElement regexElm = driver.findElement(By.xpath("//a[@title='在线短网址生成']"));
         regexElm.click();
+        //find input area
         WebElement input = driver.findElement(By.name("url"));
+        //clear old value
         input.clear();
+        //fill it with new content
         input.sendKeys("www.baidu.com");
+        //check valid
         assertEquals(input.getAttribute("value"), "www.baidu.com");
     }
 
     public void TestShotScreen() throws IOException {
         try {
+            //wait for loading web successful
             Thread.sleep(10);
         }catch (Exception e){
             e.printStackTrace();
         }
+        //get show screen
         File screenShotFile = ((TakesScreenshot) driver).
                 getScreenshotAs(OutputType.FILE);
+        //save as relative path
         FileUtils.copyFile(screenShotFile, new File("./test.png"));
+        //check valid
         assertEquals(new File("test.png").exists(), true);
     }
 
 
     public void TestCheckBoxShow()throws IOException {
         WebElement regexElm = driver.findElement(By.xpath("//a[@title='在线正则表达式测试']"));
-        assertEquals(regexElm.getAttribute("href"), "http://www.toolfk.com/tool-online-regex");
+        //assertEquals(regexElm.getAttribute("href"), "http://www.toolfk.com/tool-online-regex");
         regexElm.click();
         List<WebElement> checkBoxList = driver.findElements(By.className("regex-flag"));
         // select all checkbox
@@ -156,8 +164,14 @@ public class GUITest {
     public void TestUpload()throws IOException{
     	driver.findElement(By.xpath(".//a[@title='在线PDF转图片']")).click();
     	WebElement adFileUpload = driver.findElement(By.id("pdf"));
-    	String filePath = "D://testfile//test.pdf";
-    	adFileUpload.sendKeys(filePath);
+    	//get project's root path
+        File directory = new File("");
+        String FilePath = directory.getCanonicalPath();
+        //add relative path
+        FilePath = FilePath + "\\src\\test\\java\\testfile\\test.pdf";
+        //upload
+    	adFileUpload.sendKeys(FilePath);
+    	//check valid
     	assertEquals(driver.findElement(By.id("pdfName")).getText().length(), 8);
     }
 }
