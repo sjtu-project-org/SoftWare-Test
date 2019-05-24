@@ -17,7 +17,6 @@ import java.util.List;
 public class GUITest {
     private WebDriver driver;
     private String url = "http://www.toolfk.com/";
-    public int mask = 0x0;
 
     public GUITest(){
         System.setProperty("webdriver.chrome.driver", "chromedriver_win32\\chromedriver.exe");
@@ -36,7 +35,6 @@ public class GUITest {
         input.clear();
         input.sendKeys("www.baidu.com");
         assertEquals(input.getAttribute("value"), "www.baidu.com");
-        mask = mask | 1;
     }
 
     public void TestShotScreen() throws IOException {
@@ -49,7 +47,6 @@ public class GUITest {
                 getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(screenShotFile, new File("./test.png"));
         assertEquals(new File("test.png").exists(), true);
-        mask = mask | 1 << 1;
     }
 
 
@@ -84,7 +81,6 @@ public class GUITest {
         for (WebElement e: checkBoxList) {
             assertEquals(e.isSelected(), false);
         }
-        mask = mask | 1 << 2;
     }
 
     public void TestCheckBoxFunc()throws IOException {
@@ -100,7 +96,6 @@ public class GUITest {
         allCheckBox.click();
         // regex match one line, should be 1 result
         assertEquals(resultCount.getText(),"1");
-        mask = mask | 1 << 3;
     }
 
     public void TestDropDownBox() throws IOException{
@@ -145,21 +140,18 @@ public class GUITest {
         selectTool.selectByVisibleText("15");
         pwdGenButton.click();
         assertEquals(driver.findElement(By.className("layui-input-block")).getText().length(), 15+childLen);
-        mask = mask | 1 << 4;
     }
 
 
     public void TestButton(){
         WebElement e1 = driver.findElement(By.xpath(".//a[@title='在线进制转换']"));
         e1.click();
-        mask = mask | 1 << 5;
     }
     public void TestSingleRadio()throws IOException{
     	WebElement e1 = driver.findElement(By.xpath(".//a[@title='在线进制转换']"));
         e1.click();
         WebElement e2 = driver.findElement(By.xpath(".//input[@id='hex_8']"));
         e2.click();
-        mask = mask | 1 << 6;
     }
     public void TestUpload()throws IOException{
     	driver.findElement(By.xpath(".//a[@title='在线PDF转图片']")).click();
@@ -167,6 +159,5 @@ public class GUITest {
     	String filePath = "D://testfile//test.pdf";
     	adFileUpload.sendKeys(filePath);
     	assertEquals(driver.findElement(By.id("pdfName")).getText().length(), 8);
-        mask = mask | 1 << 7;
     }
 }
