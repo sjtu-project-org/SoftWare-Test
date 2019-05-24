@@ -57,7 +57,4 @@ public class WebUnitTest {
         test.TestSingleRadio();
     }
 
-    public void main(){
-
-    }
 }
