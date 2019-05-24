@@ -46,7 +46,7 @@ public class GUITest {
     }
 
 
-    public void TestCheckBox() {
+    public void TestCheckBoxShow() {
         WebElement regexElm = driver.findElement(By.xpath("//a[@title='在线正则表达式测试']"));
         assertEquals(regexElm.getAttribute("href"), "http://www.toolfk.com/tool-online-regex");
         regexElm.click();
@@ -78,6 +78,21 @@ public class GUITest {
             assertEquals(e.isSelected(), false);
         }
         //driver.switchTo().defaultContent();
+    }
+
+    public void TestCheckBoxFunc() {
+        driver.findElement(By.xpath("//a[@title='在线正则表达式测试']")).click();
+        driver.findElement(By.linkText("匹配中文")).click();
+        List<WebElement> checkBoxList = driver.findElements(By.className("regex-flag"));
+        WebElement allCheckBox = checkBoxList.get(0);
+        // default, regex match all Chinese Text, should be 8 result
+        WebElement resultCount = driver.findElement(By.id("result_count"));
+        assertEquals(resultCount.getText(), "8");
+
+        // change check box, match all -> match one line
+        allCheckBox.click();
+        // regex match one line, should be 1 result
+        assertEquals(resultCount.getText(),"1");
     }
 
     public void TestDropDownBox() {

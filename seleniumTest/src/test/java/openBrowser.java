@@ -13,6 +13,7 @@ public class openBrowser {
         test.TestShotScreen();
         //test.TestCheckBox();
         //test.TestUpload();
+        test.TestCheckBoxFunc();
         //open chrome
         //System.setProperty("webdriver.chrome.driver", "chromedriver_win32\\chromedriver.exe");
         //WebDriver driver = new ChromeDriver();
