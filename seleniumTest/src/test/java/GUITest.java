@@ -33,9 +33,8 @@ public class GUITest {
     }
 
     public void TestShotScreen() throws IOException {
-        WebElement approval = driver.findElement(By.cssSelector("form[action='/']"));
         try {
-            Thread.sleep(30);
+            Thread.sleep(10);
         }catch (Exception e){
             e.printStackTrace();
         }
