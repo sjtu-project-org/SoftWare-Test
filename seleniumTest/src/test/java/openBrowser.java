@@ -22,10 +22,13 @@ public class openBrowser {
     public static void main(String args[]) throws IOException {
         GUITest test = new GUITest();
         //test.TestInput();
+        //test.TestPPopupDialogs();
         test.TestShotScreen();
         //test.TestCheckBox();
         //test.TestUpload();
-        test.TestCheckBoxFunc();
+        //test.TestCheckBoxFunc();
+        test.TestDropDownBox();
+        test.back2Default();
         //open chrome
         //System.setProperty("webdriver.chrome.driver", "chromedriver_win32\\chromedriver.exe");
         //WebDriver driver = new ChromeDriver();

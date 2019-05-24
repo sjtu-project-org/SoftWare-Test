@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import static org.junit.Assert.*;
 
 import java.io.File;
@@ -24,7 +25,11 @@ public class GUITest {
         driver.get(url);
     }
 
-    public void TestInput() throws IOException{
+    public void back2Default() {
+        driver.navigate().to(url);
+    }
+
+    public void TestInput(){
         WebElement regexElm = driver.findElement(By.xpath("//a[@title='在线短网址生成']"));
         regexElm.click();
         WebElement input = driver.findElement(By.name("url"));
@@ -143,7 +148,8 @@ public class GUITest {
         mask = mask | 1 << 4;
     }
 
-    public void TestButton()throws IOException{
+
+    public void TestButton(){
         WebElement e1 = driver.findElement(By.xpath(".//a[@title='在线进制转换']"));
         e1.click();
         mask = mask | 1 << 5;
