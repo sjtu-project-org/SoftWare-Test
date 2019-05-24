@@ -1,4 +1,3 @@
-import junit.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -7,14 +6,15 @@ import org.junit.Test;
 import java.io.IOException;
 
 public class WebUnitTest {
-    GUITest test;
+    private static GUITest test;
 
     @BeforeClass
-    public void setUp() throws Exception {
+    public static void setUp() throws Exception {
         test = new GUITest();
     }
     @After
     public void revert(){
+        test.back2Default();
     }
 
     @Test
