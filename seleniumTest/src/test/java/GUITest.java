@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -20,6 +21,10 @@ public class GUITest {
         System.setProperty("webdriver.chrome.driver", "chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get(url);
+    }
+
+    public void back2Default() {
+        driver.navigate().to(url);
     }
 
     public void TestInput(){
@@ -128,6 +133,7 @@ public class GUITest {
         pwdGenButton.click();
         assertEquals(driver.findElement(By.className("layui-input-block")).getText().length(), 15+childLen);
     }
+
 
     public void TestButton(){
         WebElement e1 = driver.findElement(By.xpath(".//a[@title='在线进制转换']"));
