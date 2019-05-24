@@ -259,6 +259,11 @@
       <updated>1558236553488</updated>
       <workItem from="1558236557240" duration="1861000" />
       <workItem from="1558238805898" duration="5712000" />
+      <workItem from="1558252158462" duration="3016000" />
+      <workItem from="1558267899094" duration="8263000" />
+      <workItem from="1558360121608" duration="3903000" />
+      <workItem from="1558413524307" duration="17000" />
+      <workItem from="1558691564239" duration="9953000" />
     </task>
     <servers />
   </component>
@@ -299,6 +304,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.32952183" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6727079" visible="true" weight="0.25051975" />
@@ -349,7 +355,7 @@
     <entry file="file://$PROJECT_DIR$/WebTest.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
@@ -364,7 +370,9 @@
         <state relative-caret-position="35">
           <caret line="10" selection-start-line="10" selection-end-line="18" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#24230#24231#0" expanded="true" />
+            <element signature="e#29571#29572#0" expanded="true" />
+            <element signature="e#29621#29622#0" expanded="true" />
           </folding>
         </state>
       </provider>

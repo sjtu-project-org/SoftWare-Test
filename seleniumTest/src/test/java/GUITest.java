@@ -130,6 +130,8 @@ public class GUITest {
         // selecteBy value
         selectTool.selectByValue("9");
         WebElement pwdGenButton = driver.findElement(By.className("generate-password"));
+        new WebDriverWait(driver, 15).until(
+                ExpectedConditions.elementToBeClickable(pwdGenButton));
         pwdGenButton.click();
         WebElement pwdBlock = driver.findElement(By.className("layui-input-block"));
         // note getText also get the childNode test "Copy",
@@ -155,12 +157,14 @@ public class GUITest {
         WebElement e1 = driver.findElement(By.xpath(".//a[@title='在线进制转换']"));
         e1.click();
     }
+
     public void TestSingleRadio()throws IOException{
     	WebElement e1 = driver.findElement(By.xpath(".//a[@title='在线进制转换']"));
         e1.click();
         WebElement e2 = driver.findElement(By.xpath(".//input[@id='hex_8']"));
         e2.click();
     }
+
     public void TestUpload()throws IOException{
     	driver.findElement(By.xpath(".//a[@title='在线PDF转图片']")).click();
     	WebElement adFileUpload = driver.findElement(By.id("pdf"));
